@@ -380,7 +380,7 @@ z.string().check(z.email()).parse("user@example.com")
 
 The base class for all errors in Zod is `$ZodError`.
 
-> For performance reasons, `$ZodError` *does not* extend the built-in `Error` class! So using `instanceof Error` will return `false`.
+> The errors returned by `.safeParse()` and thrown by `.parse()` (and their async and codec variants) extend the built-in `Error` class, so `instanceof Error` returns `true`.
 
 - The `zod` package implements a subclass of `$ZodError` called `ZodError` with some additional convenience methods.
 - The `zod/mini` sub-package directly uses `$ZodError`
